@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="{{url_for('static',filename='plugins/images/favicon.png')}}" rel="icon" type="image/png" sizes="16x16">
+    <title>Centiment Trader</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{url_for('static',filename='bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="{{url_for('static',filename='plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css')}}" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="{{url_for('static',filename='plugins/bower_components/toast-master/css/jquery.toast.css')}}" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="{{url_for('static',filename='plugins/bower_components/morrisjs/morris.css')}}" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="{{url_for('static',filename='plugins/bower_components/chartist-js/dist/chartist.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css')}}" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="{{url_for('static',filename='css1/animate.css')}}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{url_for('static',filename='css1/style.css')}}" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="{{url_for('static',filename='css1/colors/default.css')}}" id="theme" rel="stylesheet">
+
+</head>
+
+<body class="fix-header">
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="5"/>
+        </svg>
+    </div>
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-left-part">
+                    {% block content%} {% endblock %}
+                        <b>Centiment Trader</b></a>
+                </div>
+                <!-- /Logo -->
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <form action=/search method="get" class="app-search hidden-sm hidden-xs m-r-10">
+                            <input type="text" placeholder="Search..." class="form-control" name='search'>
+                            <a><button class="fa fa-search" style="background: none; border-style: none;"></button></a>
+                        </form> 
+                    </li>
+                    <li>
+                        <a href=/home ><b class="hidden-xs">{{ information['first'] }}</b></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                <div class="sidebar-head">
+                    <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
+                </div>
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 70px 0 0;">
+                        <a href=/home class="waves-effect"><i class="fa fa-folder fa-fw" aria-hidden="true"></i>Home</a>
+                    </li>
+                    <li>
+                        <a href=/user class="waves-effect"><i class="fa fa-flash fa-fw" aria-hidden="true"></i>User</a>
+                    </li>
+                    <li>
+                        <a href=/logout class="waves-effect"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i>Logout</a>
+                    </li>
+
+                </ul>
+            </div>
+            
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+
+
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="{{url_for('static',filename='plugins/bower_components/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{url_for('static',filename='bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="{{url_for('static',filename='plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js')}}"></script>
+    <!--slimscroll JavaScript -->
+    <script src="{{url_for('static',filename='js1/jquery.slimscroll.js')}}"></script>
+    <!--Wave Effects -->
+    <script src="{{url_for('static',filename='js1/waves.js')}}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{{url_for('static',filename='js1/custom.min.js')}}"></script>
+
+    {% block body %}
+
+    {% endblock %}
+
+
+</body>
+
+</html>

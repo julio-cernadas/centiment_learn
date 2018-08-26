@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %} 
+    <a class="logo" href=/user>
+{% endblock %}
+
+{% block body %}
+        <div id="page-wrapper" style="background-color:##398fe5">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title pull-left">Dashboard</h4></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">User Feed</h3>
+                            <div class="comment-center p-t-10">
+
+                                <form action="" method="post" class="comment-body">
+                                    <div class="user-img"> <img src="{{url_for('static',filename='images/1.jpg')}}" alt="user" class="img-circle"></div>
+                                    <div class="mail-contnet">
+                                        <h5>{{ username }}</h5>
+                                        <div class="col-md-14">
+                                            <textarea name="tweet" rows="4" class="form-control form-control-hide"></textarea>
+                                        </div>
+                                        <h5></h5>
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-info">Submit</button>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            
+                                {% if items %}
+                                    {% for i in items %}
+                                        <div class="comment-body">
+                                            <div class="user-img"> <img src="{{url_for('static',filename='images/1.jpg')}}" alt="user" class="img-circle">
+                                            </div>
+                                            <div class="mail-contnet">
+                                                <h5>{{ i['username'] }}</h5><span class="time">{{ i['date'] }}</span>
+                                                <br/><span class="mail-desc">{{ i['tweet'] }}</span> 
+
+                                                <a href="/repost?usr={{i['username']}}&id={{i['id']}}" class="btn btn btn-rounded btn-default btn-outline m-r-1"><i class="ti-check text-success m-r-10"></i>Repost</a>
+
+                                                <span class="time pull-right">Reposts: {{ i['repost'] }}</span>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer text-center"> 2018 &copy; Byte Academy Simulation</footer>
+        </div>
+    </div>
+
+
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+
+    <!--Counter js -->
+    <script src="{{url_for('static',filename='plugins/bower_components/waypoints/lib/jquery.waypoints.js')}}"></script>
+    <script src="{{url_for('static',filename='plugins/bower_components/counterup/jquery.counterup.min.js')}}"></script>
+    <!-- chartist chart -->
+    <script src="{{url_for('static',filename='plugins/bower_components/chartist-js/dist/chartist.min.js')}}"></script>
+    <script src="{{url_for('static',filename='plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js')}}"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="{{url_for('static',filename='plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{{url_for('static',filename='js1/dashboard1.js')}}"></script>
+    <script src="{{url_for('static',filename='plugins/bower_components/toast-master/js/jquery.toast.js')}}"></script>
+
+{% endblock %}
