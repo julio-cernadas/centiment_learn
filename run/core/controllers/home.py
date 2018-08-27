@@ -9,7 +9,7 @@ controller = Blueprint('home',__name__,url_prefix='/home')
 def info(username):
 	if request.method == 'GET':
 		if 'username' in session:
-			search = 'AMD'
+			search = 'AMZN'
 			lst,ticker = search_api(search.lower())
 			username    = session['username']
 			information = user_info(username)
